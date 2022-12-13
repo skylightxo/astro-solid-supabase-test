@@ -1,17 +1,17 @@
 import { supabase } from "../init";
 
-async function getItems() {
+import type { CartItem } from "~/types/CartItem";
+
+async function getItems(): Promise<CartItem[]> {
     const { data, error } = await supabase
         .from("items")
         .select();
-
-    console.log(data);
 
     if (error) throw error;
     return data;
 }
 
-async function getItemByName(name: string) {
+async function getItemByName(name: string): Promise<CartItem> {
     const { data, error } = await supabase
         .from("items")
         .select()

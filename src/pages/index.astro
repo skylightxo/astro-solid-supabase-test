@@ -13,7 +13,7 @@ items.filter((item) => item.stock > 0);
 		<h1 class="flex text-gradient">Our best products</h1>
 		<div class="flex justify-between gap-20">
 			{items.map((item) => (
-				<Card item={item} />
+				<Card client:load item={item} />
 			))}
 		</div>
 	</main>

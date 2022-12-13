@@ -1,10 +1,8 @@
-type Item = {
-    name: string
-    description: string
-    price: number
-};
+import { addToCart } from "~/store/solid-store";
 
-export const Card = ({ item }: { item: Item }) => {
+import type { CartItem } from "~/types/CartItem";
+
+export const Card = ({ item }: { item: CartItem }) => {
     return (
         <div class="card w-96 bg-base-100 shadow-xl">
             <figure>
@@ -15,7 +13,7 @@ export const Card = ({ item }: { item: Item }) => {
                 <p>{item.description}</p>
                 <div class="card-actions justify-end">
                     <label class="badge badge-lg">{item.price}$</label>
-                    <button class="btn btn-primary">Buy Now</button>
+                    <button onclick={() => addToCart(item)} class="btn btn-primary">Buy Now</button>
                 </div>
             </div>
         </div>
